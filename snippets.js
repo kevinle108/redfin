@@ -4,8 +4,6 @@ const sq_ft = document.querySelector("div[data-rf-test-id=abp-sqFt]").innerText.
 const bed = document.querySelector("div[data-rf-test-id=abp-beds]").innerText.split('\n')[0]
 const bath = document.querySelector("div[data-rf-test-id=abp-baths]").innerText.split('\n')[0]
 
-price_per_sqft = price_per_sqft.nextSibling.innerText
-
 function get_home_facts_info(info) {
     // Examples
     // 'Price/Sq.Ft.'
