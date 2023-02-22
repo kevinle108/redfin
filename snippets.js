@@ -8,15 +8,11 @@ function get_home_facts_info(info) {
     let ele = Array.from(document.querySelectorAll('span')).find(el => el.textContent === info);
     let data = ''
 
-    data = ele.nextSibling.innerText
-
-    // if (ele.nextSibling.innerText) {
-    //     data = ele.nextSibling.innerText
-    // }
-    // else {
-    //     if (info == 'HOA Dues') data = 'none'
-    // }
-
+    try {
+        data = ele.nextSibling.innerText
+    } catch (TypeError) {
+        if (info == 'HOA Dues') data = 'none'
+    }
     return data    
 }
 
@@ -29,7 +25,7 @@ const bath = document.querySelector("div[data-rf-test-id=abp-baths]").innerText.
 const price_per_sqft = get_home_facts_info('Price/Sq.Ft.');
 const year_built = get_home_facts_info('Year Built');
 const lot_size = get_home_facts_info('Lot Size');
-// const hoa = get_home_facts_info('HOA Dues') ?? 'none';
+const hoa = get_home_facts_info('HOA Dues') ?? 'none';
 
 
 
@@ -43,7 +39,7 @@ let info = {
     sq_ft,
     price_per_sqft,
     lot_size,
-    // hoa    
+    hoa    
 }
 
 console.table(info)
