@@ -16,6 +16,19 @@ function get_home_facts_info(info) {
     return data    
 }
 
+function has_feature(feature) {
+    const el = Array.from(document.querySelectorAll('span'))
+                    .find(el => el.textContent === feature);
+    if (el) return true
+    else return false
+}
+
+function get_feature_child(feature) {
+    const el = Array.from(document.querySelectorAll('span'))
+                    .find(el => el.textContent.includes(feature));
+    return el.textContent.replace(feature, '')
+}
+
 const url = window.location.href
 const address = document.title.split('|')[0]
 const price = document.querySelector("div[data-rf-test-id=abp-price]").innerText.split('\n')[0]
@@ -26,6 +39,8 @@ const price_per_sqft = get_home_facts_info('Price/Sq.Ft.');
 const year_built = get_home_facts_info('Year Built');
 const lot_size = get_home_facts_info('Lot Size');
 const hoa = get_home_facts_info('HOA Dues');
+// const basement = get_feature_child('Has Basement') ?? 'none'
+const age = get_feature_child('Age: ').split('.')[0]
 
 
 
@@ -36,10 +51,15 @@ let info = {
     bed,
     bath,
     year_built,
+    age,    
     sq_ft,
     price_per_sqft,
     lot_size,
-    hoa    
+    hoa,
+    // basement,
 }
 
 console.table(info)
+
+/////
+const test = Array.from(document.getElementsByClassName('entryItemContent'))
