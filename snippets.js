@@ -11,7 +11,7 @@ function get_home_facts_info(info) {
     try {
         data = ele.nextSibling.innerText
     } catch (TypeError) {
-        if (info == 'HOA Dues') data = 'none'
+        // if (info == 'HOA Dues') data = 'none'
     }
     return data    
 }
@@ -25,7 +25,7 @@ const bath = document.querySelector("div[data-rf-test-id=abp-baths]").innerText.
 const price_per_sqft = get_home_facts_info('Price/Sq.Ft.');
 const year_built = get_home_facts_info('Year Built');
 const lot_size = get_home_facts_info('Lot Size');
-const hoa = get_home_facts_info('HOA Dues') ?? 'none';
+const hoa = get_home_facts_info('HOA Dues');
 
 
 
