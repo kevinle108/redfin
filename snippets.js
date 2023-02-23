@@ -43,7 +43,7 @@ let info = {
     price: document.querySelector("div[data-rf-test-id=abp-price]").innerText.split('\n')[0],
     sq_ft: document.querySelector("div[data-rf-test-id=abp-sqFt]").innerText.split('\n')[0],
     price_per_sqft: get_value_sib('Price/Sq.Ft.'),
-    bed_bath: document.querySelector("div[data-rf-test-id=abp-beds]").innerText.split('\n')[0] + '_' + document.querySelector("div[data-rf-test-id=abp-baths]").innerText.split('\n')[0],
+    bed_bath: document.querySelector("div[data-rf-test-id=abp-beds]").innerText.split('\n')[0] + ' bed, ' + document.querySelector("div[data-rf-test-id=abp-baths]").innerText.split('\n')[0] + ' bath',
     year_built: get_value('Year Built: '),
     age: get_value('Age: '),
     lot_size: get_value_sib('Lot Size'),
@@ -54,3 +54,6 @@ let info = {
 }
 
 console.table(info)
+// localStorage.setItem('saved', JSON.stringify(info))
+// let fromLocal = localStorage.getItem('saved')
+// console.log(JSON.parse(fromLocal))
